@@ -1,20 +1,36 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# This piece of code is written by
-#    Jianing Yang <jianingy.yang@gmail.com>
-# with love and passion!
+# Copyright 2015, Jianing Yang
 #
-#        H A P P Y    H A C K I N G !
-#              _____               ______
-#     ____====  ]OO|_n_n__][.      |    |
-#    [________]_|__|________)<     |YANG|
-#     oo    oo  'oo OOOO-| oo\\_   ~o~~~o~
-# +--+--+--+--+--+--+--+--+--+--+--+--+--+
-#                             21 Jan, 2016
+#    Licensed under the Apache License, Version 2.0 (the "License");
+#    you may not use this file except in compliance with the License.
+#    You may obtain a copy of the License at
 #
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS,
+#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#    See the License for the specific language governing permissions and
+#    limitations under the License.
+#
+# Author: Jianing Yang <jianingy.yang@gmail.com>
+#
+import setuptools
 
-
-from setuptools import setup
-
-setup(setup_requires=['pbr'], pbr=True)
+setuptools.setup(
+    name='prestornado',
+    version='0.1.7',
+    description='Asynchronous PrestoDB DB-API for Tornado Web Server',
+    author='Jianing Yang',
+    author_email='jianingy.yang@gmail.com',
+    url='https://github.com/jianingy/prestornado',
+    install_requires=['tornado>=4.3'],
+    packages=['prestornado'],
+    classifiers=[
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Apache Software License',
+        'Operating System :: OS Independent',
+        'Topic :: Database',
+    ],
+)
