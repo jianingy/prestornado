@@ -153,7 +153,7 @@ class Cursor(common.DBAPICursor):
         self._state = self._STATE_RUNNING
         url = urlparse.urlunparse((
             'http', '{}:{}'.format(self._host, self._port), '/v1/statement', None, None, None))
-        _logger.info('%s', sql)
+        _logger.debug('%s', sql)
         _logger.debug("Headers: %s", headers)
         request = HTTPRequest(url, method='POST',
                               body=sql.encode('utf-8'), headers=headers)
