@@ -37,3 +37,6 @@ then
 fi
 
 ./presto-server-$PRESTO/bin/launcher start
+
+# wait until prestodb started
+sleep 15
