@@ -1,0 +1,16 @@
+sudo: required
+language: python
+env:
+  # newest everything
+  - CDH=cdh5 PRESTO=0.138
+  - CDH=cdh4 PRESTO=0.138
+python:
+  - "2.7"
+before_install:
+  - ./scripts/travis-install.sh
+  - pip install codecov
+install:
+  - pip install -e .
+  - pip install -r test-requirements.txt
+script: py.test
+after_success: codecov
