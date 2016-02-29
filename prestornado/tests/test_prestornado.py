@@ -14,7 +14,7 @@ from prestornado import presto
 from StringIO import StringIO
 import mock
 
-_HOST = 'prestodb'
+_HOST = 'localhost'
 
 
 class TestPresto(AsyncTestCase, DBAPITestCase):
