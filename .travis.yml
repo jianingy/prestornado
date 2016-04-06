@@ -2,8 +2,8 @@ sudo: required
 language: python
 env:
   # newest everything
-  - CDH=cdh5 PRESTO=0.138
-  - CDH=cdh4 PRESTO=0.138
+  - CDH=cdh5 PRESTO=0.143
+  - CDH=cdh4 PRESTO=0.143
 python:
   - "2.7"
 before_install:
