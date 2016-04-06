@@ -39,4 +39,6 @@ fi
 ./presto-server-$PRESTO/bin/launcher start
 
 # wait until prestodb started
-sleep 15
+while sleep 1; do
+	curl http://localhost:8080/v1/query && break
+done
