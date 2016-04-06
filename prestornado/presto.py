@@ -96,6 +96,7 @@ class Cursor(common.DBAPICursor):
         self._poll_interval = poll_interval
         self._source = source
         self._stats = None
+        self._query_id = None
 
         self._reset_state()
 
@@ -133,6 +134,10 @@ class Cursor(common.DBAPICursor):
     @property
     def stats(self):
         return self._stats
+
+    @property
+    def query_id(self):
+        return self._query_id
 
     @coroutine
     def execute(self, operation, parameters=None):
@@ -216,6 +221,8 @@ class Cursor(common.DBAPICursor):
         self._columns = response_json.get('columns')
         if 'stats' in response_json:
             self._stats = response_json['stats']
+        if 'id' in response_json:
+            self._query_id = response_json['id']
         if 'data' in response_json:
             assert self._columns
             new_data = response_json['data']

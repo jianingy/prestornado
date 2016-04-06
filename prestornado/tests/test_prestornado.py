@@ -59,6 +59,15 @@ class TestPresto(AsyncTestCase, DBAPITestCase):
 
     @with_cursor
     @gen_test
+    def test_query_id(self, cursor):
+        yield cursor.execute('SELECT 1 AS foobar FROM one_row')
+        # wait to finish
+        while (yield cursor.poll()):
+            pass
+        self.assertIsNotNone(cursor.query_id)
+
+    @with_cursor
+    @gen_test
     def test_complex(self, cursor):
         yield cursor.execute('SELECT * FROM one_row_complex')
         # wait to finish
