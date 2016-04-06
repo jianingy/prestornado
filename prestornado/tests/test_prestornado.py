@@ -13,8 +13,9 @@ from prestornado import exc
 from prestornado import presto
 from StringIO import StringIO
 import mock
+import os
 
-_HOST = 'localhost'
+_HOST = os.environ.get('PRESTO_HOST', 'localhost')
 
 
 class TestPresto(AsyncTestCase, DBAPITestCase):
@@ -46,6 +47,15 @@ class TestPresto(AsyncTestCase, DBAPITestCase):
         while (yield cursor.poll()):
             pass
         self.assertEqual(cursor.description, [('foobar', 'bigint', None, None, None, None, True)])
+
+    @with_cursor
+    @gen_test
+    def test_stats(self, cursor):
+        yield cursor.execute('SELECT 1 AS foobar FROM one_row')
+        # wait to finish
+        while (yield cursor.poll()):
+            pass
+        self.assertIsInstance(cursor.stats, dict)
 
     @with_cursor
     @gen_test
