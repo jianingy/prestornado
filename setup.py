@@ -20,7 +20,7 @@ import setuptools
 
 setuptools.setup(
     name='prestornado',
-    version='0.1.9',
+    version='0.1.10',
     description='Asynchronous PrestoDB DB-API for Tornado Web Server',
     author='Jianing Yang',
     author_email='jianingy.yang@gmail.com',
