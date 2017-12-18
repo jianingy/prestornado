@@ -17,7 +17,12 @@ from tornado.httpclient import AsyncHTTPClient, HTTPRequest
 import base64
 import getpass
 import logging
-import urlparse
+import sys
+
+if sys.version_info[0] < 3:
+    from urlparse import urlunparse
+else:
+    from urllib.parse import urlunparse
 
 
 # PEP 249 module globals
@@ -161,7 +166,7 @@ class Cursor(common.DBAPICursor):
         self._reset_state()
 
         self._state = self._STATE_RUNNING
-        url = urlparse.urlunparse((
+        url = urlunparse((
             'http', '{}:{}'.format(self._host, self._port), '/v1/statement', None, None, None))
         _logger.debug('%s', sql)
         _logger.debug("Headers: %s", headers)
