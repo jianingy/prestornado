@@ -1,6 +1,6 @@
 # Prestornado
 
-Asynchronous [PrestoDB](https://prestodb.io/) DB-API for [Tornado Web Server](http://tornadoweb.org/)
+Asynchronous [PrestoDB](https://prestosql.io/) DB-API for [Tornado Web Server](http://tornadoweb.org/)
 
 This is a port based on dropbox's [PyHive](https://github.com/dropbox/PyHive) with `requests` been replaced with tornado's `AsyncHTTPClient`
 
